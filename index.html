@@ -10,12 +10,11 @@
   <button onclick="increaseCount()">Click Me</button>
 
   <script>
-    let count = localStorage.getItem("count") || 0;
+    let count = 0;
     document.getElementById("count").innerText = count;
 
     function increaseCount() {
       count++;
-      localStorage.setItem("count", count);
       document.getElementById("count").innerText = count;
     }
 
