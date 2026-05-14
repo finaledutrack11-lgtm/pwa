@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PWA Counter App</title>
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <h1>PWA Counter App</h1>
+  <p>Count: <span id="count">0</span></p>
+  <button onclick="increaseCount()">Click Me</button>
+
+  <script>
+    let count = localStorage.getItem("count") || 0;
+    document.getElementById("count").innerText = count;
+
+    function increaseCount() {
+      count++;
+      localStorage.setItem("count", count);
+      document.getElementById("count").innerText = count;
+    }
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
+</body>
+</html>
